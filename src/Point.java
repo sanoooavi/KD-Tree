@@ -1,8 +1,8 @@
+import java.util.Objects;
 
-
-public class Point implements Comparable<Point> {
-    private final double x;    // x coordinate
-    private final double y;// y coordinate
+public class Point  {
+    private double x;    // x coordinate
+    private double y;// y coordinate
 
     public Point(double x, double y) throws Exception {
         if (Double.isInfinite(x) || Double.isInfinite(y))
@@ -14,6 +14,10 @@ public class Point implements Comparable<Point> {
         this.x = x;
         this.y = y;
     }
+    void changeNode(Point that){
+        this.x=that.X();
+        this.y=that.Y();
+    }
 
     public double X() {
         return x;
@@ -24,30 +28,25 @@ public class Point implements Comparable<Point> {
     }
 
     public static int X_ORDER(Point p, Point q) {
-        return Double.compare(p.x, q.x);
+        if (p.x < q.x) return 0;
+        else return 1;
     }
 
     public static int Y_ORDER(Point p, Point q) {
-        return Double.compare(p.y, q.y);
+        if (p.y < q.y) return 0;
+        else return 1;
     }
+
     @Override
-    public int compareTo(Point that) {
-        if (this.y < that.y) return -1;
-        if (this.y > that.y) return +1;
-        return Double.compare(this.x, that.x);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Point)) return false;
+        Point point = (Point) o;
+        return Double.compare(point.x, x) == 0 && Double.compare(point.y, y) == 0;
     }
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) return true;
-        if (other == null) return false;
-        if (other.getClass() != this.getClass()) return false;
-        Point that = (Point) other;
-        return this.x == that.x && this.y == that.y;
-    }
+
     @Override
     public int hashCode() {
-        int hashX = ((Double) x).hashCode();
-        int hashY = ((Double) y).hashCode();
-        return 31*hashX + hashY;
+        return Objects.hash(x, y);
     }
 }

@@ -12,4 +12,24 @@ public class StateRectangle {
         this.Y_max = ymax;
     }
 
+    public int contains(Point p, boolean H) {
+        if (H) {
+            if (p.X() >= X_min && p.X() <= X_max)
+                return 1;
+            else if (p.X() > X_max)
+                return 0;
+            else
+                return -1;
+
+        }
+        else {
+            if (p.Y() >= Y_min && p.Y() <= Y_max)
+                return 1;
+            else if (p.Y() > Y_max)
+                return 0;
+            else
+                return -1;
+        }
+    }
+
 }
