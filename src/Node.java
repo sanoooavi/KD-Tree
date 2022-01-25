@@ -7,11 +7,8 @@ public class Node {
         return branch;
     }
 
-    public Node(String inf, Point point) {
-        String[] str = inf.split(" ");
-        this.branch = new Branch(str[0], str[1], point);
-
+    public Node(Branch branch) {
+        this.branch = branch;
     }
-
 
 }

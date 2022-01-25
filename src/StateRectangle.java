@@ -1,9 +1,9 @@
 public class StateRectangle {
-    private final double X_min, Y_min;   // minimum x- and y-coordinates
-    private final double X_max, Y_max;   // maximum x- and y-coordinates
+    private final int X_min, Y_min;   // minimum x- and y-coordinates
+    private final int X_max, Y_max;   // maximum x- and y-coordinates
 
-    public StateRectangle(double xmin, double ymin, double xmax, double ymax) throws Exception {
-        if (xmax < xmin || ymax < ymin) {
+    public StateRectangle(int xmin, int ymin, int xmax, int ymax) throws Exception {
+        if (xmax <= xmin || ymax <= ymin) {
             throw new Exception("Invalid Rectangle");
         }
         this.X_min = xmin;
@@ -12,7 +12,7 @@ public class StateRectangle {
         this.Y_max = ymax;
     }
 
-    public int contains(Point p, boolean H) {
+    public int contains(Branch p, boolean H) {
         if (H) {
             if (p.X() >= X_min && p.X() <= X_max)
                 return 1;
@@ -21,8 +21,7 @@ public class StateRectangle {
             else
                 return -1;
 
-        }
-        else {
+        } else {
             if (p.Y() >= Y_min && p.Y() <= Y_max)
                 return 1;
             else if (p.Y() > Y_max)
