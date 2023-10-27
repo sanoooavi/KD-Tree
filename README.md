@@ -47,7 +47,3 @@ To use the Nearest Bank Finder system, follow these steps:
 7. To undo a command, select the undo option. This will revert the last operation performed, such as adding a bank location or adding a branch.
 
 8. Continue using the system by choosing different options or exit the program when finished.
-
-## Conclusion
-
-The Nearest Bank Finder system provides a convenient way to find the nearest bank to a given location using the KD-Tree data structure. It allows users to add bank locations and branches, find the nearest bank, and undo previous commands. By leveraging the efficiency of the KD-Tree, the system ensures fast and accurate results.
